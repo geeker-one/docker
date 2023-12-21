@@ -1,0 +1,13 @@
+version: '2'
+services:
+  siyuan:
+    image: b3log/siyuan:latest
+    container_name: siyuan
+    restart: no
+    ports:
+      - "9091:6806"
+    volumes:
+      - "./siyuan_docker:/home/siyuan/SiYuan"
+    command: [--accessAuthCode=1234,--lang=zh_CN, --workspace=/home/siyuan/SiYuan]
+    # 必须是这样才可以有权限创建目录
+    user: "root"

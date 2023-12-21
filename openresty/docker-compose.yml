@@ -1,0 +1,18 @@
+---
+version: "2.1"
+services:
+  openresty:
+    image: openresty/openresty
+    # build: ./
+    # container_name: openresty
+    # environment:
+    volumes:
+      - ./nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+      - ./nginx.conf.d:/etc/nginx/conf.d
+      - ./html:/usr/local/openresty/nginx/html
+      - ./logs:/usr/local/openresty/nginx/logs/
+      - /etc/localtime:/etc/localtime
+    # ports:
+    #   - 80:80
+    network_mode: host
+    restart: unless-stopped
